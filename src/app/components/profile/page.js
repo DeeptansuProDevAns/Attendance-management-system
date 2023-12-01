@@ -14,11 +14,16 @@ export default function profile() {
     const addEmployee = async () => {
         const response = await fetch('http://localhost:8282/api/employees/getEmployee/deeptansu22@gmail.com')
         const data = await response.json()
+        // setUser(data.designationID)
         setUser(data)
         console.log(data);
-        setUserAddress(data.address)
-        setUserDesignation(data.designation)
-        setUserDepartment(data.designation.department)
+        // setUserAddress(data.address)
+        // setUserDesignation(data.designation)
+        // console.log(data.designation.department.departmentName)
+        console.log(user.designation.department.departmentName)
+
+
+        // console.log(data);
 
         console.log(data);
     }
