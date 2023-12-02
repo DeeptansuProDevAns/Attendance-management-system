@@ -20,7 +20,7 @@ export default function profile() {
         // setUserAddress(data.address)
         // setUserDesignation(data.designation)
         // console.log(data.designation.department.departmentName)
-        console.log(user.designation.department.departmentName)
+        console.log(setUser.designation.department.departmentName)
 
 
         // console.log(data);
