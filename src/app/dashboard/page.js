@@ -9,7 +9,7 @@ export default function page() {
     const router = useRouter()
     return (
         <div className="dashboardmainpage">
-          
+          <button className="btn btn-danger">Check-In</button>
         </div>
     )
 }

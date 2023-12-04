@@ -8,6 +8,10 @@
   /* position: fixed; */
   /* text-align: center; */
 }
+a{
+  text-decoration: none;
+}
+
 .childlist {
   background: white;
   margin: 10px;
@@ -19,4 +23,7 @@ a{
 }
 .col-10{
   
+}
+.row{
+  width: 100%;
 }

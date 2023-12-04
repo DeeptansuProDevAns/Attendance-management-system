@@ -23,7 +23,7 @@ export default function Leave(){
 
     return(
         <div>
-            <div className="cards">
+            <div className="leaveCard">
                 {
                     leave.map((item)=>(
                         <div className="card">
