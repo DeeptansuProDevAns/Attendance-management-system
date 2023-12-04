@@ -10,18 +10,18 @@ export default function profile() {
     const [userAddress, setUserAddress] = useState([])
     const [userDesignation, setUserDesignation] = useState([])
     const [userDepartment, setUserDepartment] = useState([])
+    const [userLocation, setUserLocation] = useState([])
+    const [organization, setOrganization] = useState([])
 
     const addEmployee = async () => {
         const response = await fetch('http://localhost:8282/api/employees/getEmployee/deeptansu22@gmail.com')
         const data = await response.json()
-        // setUser(data.designationID)
         setUser(data)
-        console.log(data);
-        // setUserAddress(data.address)
-        // setUserDesignation(data.designation)
-        // console.log(data.designation.department.departmentName)
-        console.log(setUser.designation.department.departmentName)
-
+        setUserAddress(data.address)
+        setUserDesignation(data.designation)
+        setUserDepartment(data.designation.department)
+        setUserLocation(data.location)
+        setOrganization(data.location.organization)
 
         // console.log(data);
 
@@ -32,9 +32,6 @@ export default function profile() {
         addEmployee()
     }, [])
 
-    console.log(user);
-
-    // console.log(user.designation.designationName);
 
     return (
         <div>
@@ -76,7 +73,7 @@ export default function profile() {
                         </div>
                         <div className='basicdetails'>
                             <div className='col-6'>Department</div>
-                            {/* <div className='col-6'>{userDepartment.departmentName }</div> */}
+                            { <div className='col-6'>{userDepartment.departmentName }</div> }
                         </div>
                         <div className='basicdetails'>
                             <div className='col-6'>Employee ID : </div>
