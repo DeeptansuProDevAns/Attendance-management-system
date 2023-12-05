@@ -43,7 +43,7 @@ export default function Layout({ children }) {
                     </div>
                     <div className="childlist">
                         <Link href="/components/organisation">
-                            <span className="bi bi-buildings-fill"></span>&nbsp; OrganiZation
+                            <span className="bi bi-buildings-fill"></span>&nbsp; Organization
                         </Link>
                     </div>
                     <div className="childlist">Policy</div>

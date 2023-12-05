@@ -1,15 +1,14 @@
 'use client'
 import { useRouter } from "next/navigation"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import './page.css'
-import Image from "next/image"
-import image from '../../../public/favicon.ico'
+
+import CountdownTimer from "./count.js"
 
 export default function page() {
-    const router = useRouter()
-    return (
-        <div className="dashboardmainpage">
-          <button className="btn btn-danger">Check-In</button>
-        </div>
-    )
+return(
+  <div>
+    <CountdownTimer />
+  </div>
+)
 }

@@ -23,8 +23,6 @@ export default function profile() {
         setUserLocation(data.location)
         setOrganization(data.location.organization)
 
-        // console.log(data);
-
         console.log(data);
     }
 
