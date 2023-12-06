@@ -8,7 +8,7 @@ const Attendance = () => {
   const [attendanceData, setAttendanceData] = useState(null);
 
   const attendanceApi = async (startDate, endDate) => {
-    const response = await fetch(`http://localhost:8282/api/attendance/employee/kamilpraseej@gmail.com?startDate=${startDate}&endDate=${endDate}`);
+    const response = await fetch(`http://localhost:8282/api/attendance/employee/gurujapumanohar75@gmail.com?startDate=${startDate}&endDate=${endDate}`);
     const data = await response.json();
     setAttendanceData(data);
     console.log(attendanceData);

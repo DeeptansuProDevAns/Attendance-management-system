@@ -103,7 +103,7 @@ export default function AddUser() {
     lastName: '',
     emailId: '',
     age: 0,
-    phone:'',
+    phone: '',
     gender: '',
     isReportingManager: false,
     reportingManager: '',
@@ -125,11 +125,26 @@ export default function AddUser() {
     }
   });
 
-  const { firstName, lastName, emailId,age, phone, gender,isReportingManager, reportingManager,
-    address, designation, location  } = user
+  const [addres,setAddress] = useState({
+    buildingNo: 0,
+    buildingName: '',
+    streetName: '',
+    city: '',
+    district: '',
+    state: '',
+    country: '',
+    postalCode: 0
+  })
+
+  const { firstName, lastName, emailId, age, phone, gender, isReportingManager, reportingManager,
+    address, designation, location } = user
+  const {buildingNo, buildingName, streetName, city, district, state, country, postalCode}=address
 
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
+  }
+  const onInputChangeA = (e) => {
+    setUser({ ...address, [e.target.name]: e.target.value });
   }
 
 
@@ -145,11 +160,11 @@ export default function AddUser() {
         },
         body: JSON.stringify(user),
       });
-  
+
       if (response.ok) {
         const responseData = await response.json();
         console.log('API Response:', responseData);
-        router.push('/dashboard'); 
+        router.push('/dashboard');
       } else {
         console.error('Failed to submit form. Server returned:', response.status, response.statusText);
         const errorResponseData = await response.json();
@@ -158,9 +173,9 @@ export default function AddUser() {
     } catch (error) {
       console.error('Error submitting form:', error);
     }
-    
+
   };
-  
+
 
   return (
     <div className='container'>
@@ -171,7 +186,7 @@ export default function AddUser() {
 
             <div className='mb-3'>
               <label htmlFor='firstName' className='form-label'>
-              firstName
+                firstName
               </label>
               <input
                 type='text'
@@ -186,7 +201,7 @@ export default function AddUser() {
 
             <div className='mb-3'>
               <label htmlFor='lastName' className='form-label'>
-              lastName
+                lastName
               </label>
               <input
                 type='text'
@@ -201,7 +216,7 @@ export default function AddUser() {
 
             <div className='mb-3'>
               <label htmlFor='emailId' className='form-label'>
-              emailId
+                emailId
               </label>
               <input
                 type='email'
@@ -216,7 +231,7 @@ export default function AddUser() {
 
             <div className='mb-3'>
               <label htmlFor='age' className='form-label'>
-              age
+                age
               </label>
               <input
                 type='number'
@@ -232,7 +247,7 @@ export default function AddUser() {
 
             <div className='mb-3'>
               <label htmlFor='phone' className='form-label'>
-              phone
+                phone
               </label>
               <input
                 type='text'
@@ -247,7 +262,7 @@ export default function AddUser() {
 
             <div className='mb-3'>
               <label htmlFor='gender' className='form-label'>
-              gender
+                gender
               </label>
               <input
                 type='text'
@@ -262,7 +277,7 @@ export default function AddUser() {
 
             <div className='mb-3'>
               <label htmlFor='isReportingManager' className='form-label'>
-              isReportingManager
+                isReportingManager
               </label>
               <input
                 type='text'
@@ -277,7 +292,7 @@ export default function AddUser() {
 
             <div className='mb-3'>
               <label htmlFor='reportingManager' className='form-label'>
-              reportingManager
+                reportingManager
               </label>
               <input
                 type='text'
@@ -291,14 +306,14 @@ export default function AddUser() {
             </div>
 
             <div className='mb-3'>
-              <label htmlFor='address.buildingNo' className='form-label'>
-              buildingNo
+              <label htmlFor='buildingNo' className='form-label'>
+                buildingNo
               </label>
               <input
                 type='text'
                 className='form-control'
-                name='address.buildingNo'
-                value={address.buildingNo}
+                name='buildingNo'
+                value={buildingNo}
                 onChange={(e) => onInputChange(e)}
                 placeholder='reportingManager'
                 required
@@ -308,7 +323,7 @@ export default function AddUser() {
             <button type='submit' className='btn btn-primary '>
               Submit
             </button>
-            <Link href='/dashboard' className='btn btn-danger mx-2'>
+            <Link href='/dashboard'  className='btn btn-danger mx-2'>
               Cancel
             </Link>
           </form>
