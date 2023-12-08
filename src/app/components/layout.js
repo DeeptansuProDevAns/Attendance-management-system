@@ -25,11 +25,15 @@ export default function Layout({ children }) {
 
 
             <div className="dflex col-2 lists">
-                <div className="childlist"><Link href='/dashboard/profile'>Profile</Link></div>
-                <div className="childlist">About</div>
-                <div className="childlist">Leave</div>
-                <div className="childlist">Policy</div>
-                <div className="childlist">Holiday</div>
+                <div className="childlist"><Link href='/components/profile'>Profile</Link></div>
+                <div className="childlist"><Link href='/components/attendance'>Attendance</Link></div>
+                <div className="childlist"><Link href='/components/departments/addDepartment'>Department</Link></div>
+                <div className="childlist"><Link href='/components/designation'>Designation</Link></div>
+                <div className="childlist"><Link href='/components/organization/addOrganization'>Organization</Link></div>
+                <div className="childlist"><Link href='/components/organization/addBranchOffice'>Branch Office</Link></div>
+                <div className="childlist"><Link href='/components/leave'>Leave Info</Link></div>
+                <div className="childlist"><Link href='/components/leaveApplication'>Leave Application</Link></div>
+                <div className="childlist"><Link href='/components/holiday/viewHoliday'>Holiday</Link></div>
             </div>
 
             <div className="col-10">{children}</div>

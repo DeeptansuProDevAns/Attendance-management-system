@@ -1,14 +1,36 @@
+
+.superParent{
+    height: 100%;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
 .dashboardmainpage{
-    background: #3C6BAA;
+    background: #ffffff;
     height: 100vh;
-    color: #2FBA78;
+    color: #000000;
 }
 .dashboardmainpage a{
     text-decoration: none;
 }
 .dashboardmainpage button{
-    color: #2FBA78;
+    color: #f8f8f8;
     margin: 10px;
     padding: 10px 8px;
     border-radius: 10px;
+}
+
+
+.timer {
+    font-size: 36px;
+    width: 300px;
+    font-family: monospace;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
 }

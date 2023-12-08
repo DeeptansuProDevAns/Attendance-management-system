@@ -2,7 +2,6 @@
 import Link from 'next/link'
 import React from 'react'
 import "./login.css"
-// pages/login.js
 import { useState } from 'react';
 
 const LoginPage = () => {

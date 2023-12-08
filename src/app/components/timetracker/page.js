@@ -1,8 +1,15 @@
 import React from 'react'
+import './timetracker.css'
 
 const Timetracker = () => {
   return (
-    <div>Timetracker page</div>
+    <div>
+      <table>
+        <th>
+          <td></td>
+        </th>
+      </table>
+    </div>
   )
 }
 
