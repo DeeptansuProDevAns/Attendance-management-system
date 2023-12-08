@@ -82,7 +82,7 @@ export default function AddHoliday() {
 
                         </div>
 
-                        <div className="button"><button type='submit' className=''>Submit</button></div>
+                        <div className="button1"><button type='submit' className=''>Submit</button></div>
                         </form>
                     </div>
                 </div>

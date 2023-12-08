@@ -1,3 +1,4 @@
+/* employee.css */
 h2{
     color: #02576C;
     margin-bottom: 40px;
@@ -29,4 +30,32 @@ select{
     height: 35px;
     border-color: grey;
     border-radius: 5px;
+}
+/* .personalDetails{
+    border: 1px solid black;
+} */
+/* .mainpage{
+    padding: 50px 100px;
+    display: grid;
+    grid-template-columns: 500px 500px;
+} */
+.subpage{
+    width: 100%;
+    gap: 10%;
+    padding: 50px 100px;
+    display: grid;
+    grid-template-columns: 45% 45%;
+}
+.officeData{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.cards{
+    border-radius: 20px;
+    border: 1px solid grey;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 5px 5px 5px rgb(29, 29, 35),5px 5px 5px rgb(29, 29, 35)inset;
+
 }

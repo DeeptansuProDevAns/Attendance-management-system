@@ -19,7 +19,7 @@ export default function Layout({ children }) {
                 </div>
             </div> */}
             <div className="row">
-                <div className="dflex col-3 lists">
+                <div className="dflex col-2 lists">
                     <div className="childlist">
                         <Link href="/components/profile">
                             <span className="bi bi-person-fill"> </span>&nbsp; Profile
@@ -51,7 +51,7 @@ export default function Layout({ children }) {
                     <div className="childlist">About</div>
                 </div>
 
-                <div className="col-9">{children}</div>
+                <div className="col-10">{children}</div>
             </div>
         </div>
     );

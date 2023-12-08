@@ -102,7 +102,7 @@ export default function AddDesignation() {
                                     onChange={(e) => onInputChange(e)}
                                     required
                                 >
-                                    <option value='' disabled>Select Department</option>
+                                    <option value=''>Select Department</option>
                                     {departments.map((department) => (
                                         <option key={department.departmentId} value={department.departmentId}>
                                             {department.departmentName}
@@ -110,7 +110,7 @@ export default function AddDesignation() {
                                     ))}
                                 </select>
                             </div>
-                            <div className="button">
+                            <div className="button1">
                                 <button type='submit'>Submit</button>
                             </div>
                         </form>

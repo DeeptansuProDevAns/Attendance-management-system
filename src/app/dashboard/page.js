@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import "./page.css";
+import {email} from "../util/constants"
 
 const TimerLocation = () => {
   const [hours, setHours] = useState("00");
@@ -10,8 +11,8 @@ const TimerLocation = () => {
   const [status, setStatus] = useState(null);
   const [startTimer, seStartTimer] = useState(null);
   const [attendanceStatus, setAttendanceStatus] = useState("");
-
   const [loading, setLoading] = useState(false);
+
 
   const locationApi = async (position, status) => {
     const latitude = position.coords.latitude;
@@ -28,7 +29,7 @@ const TimerLocation = () => {
 
   const sendAttendanceStatus = async (status, location) => {
     const response = await fetch(
-      `http://localhost:8282/api/attendance/${status}/gurujapumanohar75@gmail.com?location=${location}`,
+      `http://localhost:8282/api/attendance/${status}/${email}?location=${location}`,
       {
         method: "POST",
         headers: {
@@ -70,7 +71,7 @@ const TimerLocation = () => {
   const fetchStartTime = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8282/api/attendance/fetch-start-time/gurujapumanohar75@gmail.com"
+        `http://localhost:8282/api/attendance/fetch-start-time/${email}`
       );
 
       if (!response.ok) {
@@ -152,21 +153,29 @@ const TimerLocation = () => {
   
   return (
     <div className="superParent">
-      {/* <Loader loading={loading} /> */}
+      <div className="subparent">
+      <div className="status">Status: <span>{status}</span></div>
 
       <div className="timer">
         <span id="hours">{hours}</span>: <span id="minutes">{minutes}</span>:
         <span id="seconds">{seconds}</span>
         <span> Hrs</span>
       </div>
+      
+      <div>
       <button
         className={`btn ${
           attendanceStatus === "check-in" ? "btn-success" : "btn-danger"
         }`}
         onClick={toggleStatus}
+        disabled={["ABSENT", "LEAVE", "OUT"].includes(status)}
       >
         {attendanceStatus === "check-in" ? "Check-In" : "Check-Out"}
       </button>
+      </div>
+
+      
+      </div>
     </div>
   );
 };

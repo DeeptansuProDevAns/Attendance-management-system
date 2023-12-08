@@ -1,6 +1,8 @@
 'use client'
 import './profile.css'
 import { use, useEffect, useState } from 'react'
+import { email } from '@/app/util/constants';
+
 
 
 export default function profile() {
@@ -14,7 +16,7 @@ export default function profile() {
     const [organization, setOrganization] = useState([])
 
     const addEmployee = async () => {
-        const response = await fetch('http://localhost:8282/api/employees/getEmployee/deeptansu22@gmail.com')
+        const response = await fetch(`http://localhost:8282/api/employees/getEmployee/${email}`)
         const data = await response.json()
         setUser(data)
         setUserAddress(data.address)

@@ -123,7 +123,7 @@ export default function AddBranchOffice() {
                                     onChange={(e) => onInputChange(e)}
                                     required
                                 >
-                                    <option value='' disabled>Select Organization</option>
+                                    <option value=''>Select Organization</option>
                                     {organizations.map((organization) => (
                                         <option key={organization.organizationId} value={organization.organizationId}>
                                             {organization.organizationName}
