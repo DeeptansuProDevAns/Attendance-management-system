@@ -2,54 +2,53 @@
 'use client'
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import './holiday.css';
-import { useRouter } from 'next/router';
+import './branchOffice.css';
+import { useRouter } from 'next/navigation';
 
-export default function Holiday() {
-  const [holiday, setHoliday] = useState([]);
+export default function BranchLocation() {
+  const [branchLocation, setBranchLocation] = useState([]);
+  const [organization,setOrganization] = useState([]);
   const [deleteIconsVisible, setDeleteIconsVisible] = useState(false);
-  const router = useRouter;
+  const router = useRouter();
 
-  const holidayApi = async () => {
-    const response = await fetch('http://localhost:8282/api/holidays/getHolidayCalenders');
+  const locationApi = async () => {
+    const response = await fetch('http://localhost:8282/api/locations/getBranchLocations');
     const data = await response.json();
-    setHoliday(data);
+    setBranchLocation(data);
+    setOrganization(data[0].organization)
+    console.log(organization,"org")
     console.log(data);
   };
 
   useEffect(() => {
-    holidayApi();
+    locationApi();
   }, []);
 
   const handleDelete = async (id) => {
-    const confirmDelete = window.confirm('Are you sure you want to delete this holiday?');
+    const confirmDelete = window.confirm('Are you sure you want to delete this location?');
 
     if (confirmDelete) {
       try {
-        const response = await fetch(`http://localhost:8282/api/holidays/delete/${id}`, {
-          method: 'DELETE',
-        });
+        // const response = await fetch(`http://localhost:8282/api/holidays/delete/${id}`, {
+        //   method: 'DELETE',
+        // });
 
         if (response.ok) {
-        //   setHoliday((prevHoliday) => prevHoliday.filter((item) => item.id !== id));
-        holidayApi()
-          router.push('/components/holiday/viewHoliday');
+        locationApi()
+          router.push('/components/organization/BranchOffice/viewBranchOffice');
         } else {
-          console.error('Failed to delete holiday:', response.status, response.statusText);
+          console.error('Failed to delete branch office:', response.status, response.statusText);
         }
       } catch (error) {
-        console.error('Error deleting holiday:', error);
+        console.error('Error deleting office:', error);
       }
     }
   };
 
-  const renderActions = (id, holidayDate) => {
-    const currentDate = new Date();
-    const showDelete = deleteIconsVisible && currentDate < new Date(holidayDate);
-
+  const renderActions = (id) => {
     return (
       <div>
-        {showDelete && (
+        {deleteIconsVisible && (
           <button onClick={() => handleDelete(id)} className="btn btn-danger">
             <span className="bi bi-x-lg"></span>
           </button>
@@ -60,9 +59,10 @@ export default function Holiday() {
 
   return (
     <div>
-      <div className="addholiday row">
+      <div className="addOffice row">
         <div className="col-10">
-          <h3 className="heading">Calendar Year Holidays</h3>
+          <h4 className="heading">{organization.organizationName}</h4>
+          <h3 className="heading">Office Locations</h3> 
         </div>
         <div className="col-1">
           <button onClick={() => setDeleteIconsVisible((prev) => !prev)}>
@@ -71,7 +71,7 @@ export default function Holiday() {
         </div>
         <div className="col-1">
           <button>
-            <Link href="/components/holiday/addHoliday">
+            <Link href="/components/organization/BranchOffice/addBranchOffice">
               <span className="bi bi-plus-square-fill"></span>
             </Link>
           </button>
@@ -80,19 +80,21 @@ export default function Holiday() {
       <table className="tableData">
         <thead>
           <tr>
-            <td>Date</td>
-            <td>Name</td>
-            <td>Type</td>
+            <td>Address</td>
+            <td>Location</td>
+            <td>Check In Time</td>
+            <td>Check Out Time</td>
             {deleteIconsVisible? <td>Actions</td>:<td></td>}
           </tr>
         </thead>
         <tbody>
-          {holiday.map((item) => (
-            <tr key={item.holidayId}>
-              <td>{item.holidayDate}</td>
-              <td>{item.holidayName}</td>
-              <td>{item.holidayType}</td>
-              <td>{renderActions(item.holidayId, item.holidayDate)}</td>
+          {branchLocation.map((item) => (
+            <tr key={item.locationId}>
+              <td>{item.locationDetails}</td>
+              <td>{item.locationName}</td>
+              <td>{item.checkInTime}</td>
+              <td>{item.checkOutTime}</td>
+              <td>{renderActions(item.locationId)}</td>
             </tr>
           ))}
         </tbody>
