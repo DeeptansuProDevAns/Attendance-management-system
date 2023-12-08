@@ -8,6 +8,18 @@
     align-items: center;
     gap: 30px;
 }
+.subparent{
+    border: 2px solid rgb(52, 52, 83);
+    box-shadow: 5px 5px 5px rgb(29, 29, 35),5px 5px 5px rgb(29, 29, 35)inset;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    border-radius: 10px;
+    /* height: 100vh; */
+}
 
 .dashboardmainpage{
     background: #ffffff;
@@ -26,11 +38,29 @@
 
 
 .timer {
-    font-size: 36px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
     width: 300px;
     font-family: monospace;
-    background-color: #333;
+    background-color: #ed3939;
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
+}
+
+.status{
+    font-family: 'Hedvig Letters Serif', sans-serif;
+    text-align: center;
+    width: 100%;
+    background-color: rgba(151, 145, 145, 0.553);
+    padding: 10px;
+    color: rgb(52, 52, 83);
+    font-size: 25px;
+    border: 2px solid rgb(52, 52, 83);
+    border-radius: 5px;
+}
+.status span{
+    font-size: 23px;
+    font-weight: bold;
 }

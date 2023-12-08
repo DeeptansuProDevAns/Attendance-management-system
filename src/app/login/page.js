@@ -1,28 +1,27 @@
-"use client"
-import Link from 'next/link'
-import React from 'react'
-import "./login.css"
-import { useState } from 'react';
+'use client'
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import './login.css';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter();
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
 
-    // Here you can implement your authentication logic
-    // For simplicity, let's just log the credentials for now
-    console.log('Username:', username);
-    console.log('Password:', password);
+    localStorage.setItem('username', username);
+
+    router.push('/dashboard');
   };
 
   return (
     <div className='mainpage'>
       <div className='bgblur'>
         <div className='logform'>
-        <h1>Login</h1>
-          <form onSubmit={handleLogin} >
+          <h1>Login</h1>
+          <form onSubmit={handleLogin}>
             <label>
               Username:
               <input
@@ -50,3 +49,4 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
