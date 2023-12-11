@@ -6,18 +6,7 @@ import "./layout.css";
 export default function Layout({ children }) {
     return (
         <div>
-            {/* <div className="DashNavbar">
-                <div className="navitems">
-                    <button className="btn btn-lg ">Home</button>
-                    <button className="btn btn-lg ">Profile</button>
-                    <button className="btn btn-lg ">Attendance</button>
-                    <button className="btn btn-lg ">Leave</button>
-                    <button className="btn btn-lg ">About</button>
-                </div>
-                <div className="logout">
-                    <button className="btn btn-lg "><span className="bi bi-power"> </span> Logout</button>
-                </div>
-            </div> */}
+        
             <div className="row">
                 <div className="dflex col-2 lists">
                     <div className="childlist">
@@ -46,9 +35,7 @@ export default function Layout({ children }) {
                             <span className="bi bi-buildings-fill"></span>&nbsp; Organization
                         </Link>
                     </div>
-                    <div className="childlist">Policy</div>
-                    <div className="childlist">Holiday</div>
-                    <div className="childlist">About</div>
+                    
                 </div>
 
                 <div className="col-10">{children}</div>

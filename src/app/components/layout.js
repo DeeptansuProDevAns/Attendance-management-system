@@ -6,23 +6,6 @@ import './layout.css'
 export default function Layout({ children }) {
     return (
         <div className="row">
-            {/* //for navbar    */}
-                {/* <ul>
-                    <li>
-                        <Link href='/about'>About</Link>
-                    </li>
-                    <li>
-                        <Link href='/about/aboutTeacher'>Teacher About</Link>
-                    </li>
-                    <li>
-                        <Link href='/about/aboutStudent'>About Student</Link>
-                    </li>
-                    <li>
-                        <Link href='/login'>Login</Link>
-                    </li>
-                </ul>   */}
-            {/* //navbar end */}
-
 
             <div className="dflex col-2 lists">
             <img src="https://wallpapers.com/images/hd/cool-profile-picture-ld8f4n1qemczkrig.jpg" alt="" height='auto' width='40%' />
@@ -38,6 +21,7 @@ export default function Layout({ children }) {
                 <div className="childlist"><Link href='/components/leave'>Leave Info</Link></div>
                 <div className="childlist"><Link href='/components/leaveApplication/getLeaveApplications'>Leave Application</Link></div>
                 <div className="childlist"><Link href='/components/holiday/viewHoliday'>Holiday</Link></div>
+                <div className="childlist"><Link href='/components/logout'>Logout</Link></div>
             </div>
 
             <div className="col-10">{children}</div>

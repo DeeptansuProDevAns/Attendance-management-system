@@ -11,7 +11,7 @@ const TimerLocation = () => {
   const [status, setStatus] = useState(null);
   const [startTimer, seStartTimer] = useState(null);
   const [attendanceStatus, setAttendanceStatus] = useState("");
-  const [loading, setLoading] = useState(false);
+  const[user, setUser] = useState([])
 
 
   const locationApi = async (position, status) => {
@@ -48,7 +48,6 @@ const TimerLocation = () => {
   };
 
   const toggleStatus = async () => {
-    setLoading(true)
     const newStatus =
       attendanceStatus === "check-in" ? "check-out" : "check-in";
     setAttendanceStatus(newStatus);
@@ -63,9 +62,7 @@ const TimerLocation = () => {
     catch(error){
       console.error('Error:', error);
     }
-    finally{
-      setLoading(false)
-    }
+    
   };
 
   const fetchStartTime = async () => {
@@ -79,6 +76,7 @@ const TimerLocation = () => {
       }
 
       const data = await response.json();
+      console.log(data)
       setStartTime(new Date(data.time).getTime());
       seStartTimer(data.time);
       setStatus(data.status);
@@ -150,8 +148,21 @@ const TimerLocation = () => {
   useEffect(() => {
     fetchDataAndStartTime();
   }, [status]);
+
+  const fetchEmployee = async () => {
+    const response = await fetch(`http://localhost:8282/api/employees/getEmployee/${email}`)
+    const data = await response.json()
+    setUser(data)
+    console.log(data);
+}
+
+useEffect(() => {
+    fetchEmployee()
+}, [])
   
   return (
+    <>
+    <div className="name"><h3>Welcome <span>{user.firstName} {user.lastName}</span> </h3></div>
     <div className="superParent">
       <div className="subparent">
       <div className="status">Status: <span>{status}</span></div>
@@ -176,7 +187,7 @@ const TimerLocation = () => {
 
       
       </div>
-    </div>
+    </div></>
   );
 };
 

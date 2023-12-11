@@ -64,3 +64,11 @@
     font-size: 23px;
     font-weight: bold;
 }
+.name h3 {
+    color: rgb(52, 52, 83);
+    margin-top: 50px;
+    text-align: center;
+}
+.name span{
+    color: #000000;
+}
