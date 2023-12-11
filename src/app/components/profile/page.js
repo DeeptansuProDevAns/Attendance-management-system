@@ -37,7 +37,7 @@ export default function profile() {
     return (
         <div>
             <div className='row dashboardPage'>
-                <div className='col-6'>
+                <div className='col-6 left-side-page'>
                     <div className='cards'>
                         <h3>About Me</h3>
                         <ul>
@@ -61,14 +61,15 @@ export default function profile() {
                     <div className='cards'>
                         <h3>Reporting Manager</h3>
                         <ul>
-                            <li><span className='bi bi-gear-wide-connected icon-text'></span> Reporting to</li>
                             <li><span className='bi bi-diagram-3-fill icon-text'></span> {user.reportingManager}</li>
                         </ul>
 
                     </div>
                 </div>
 
-                <div className='col-6'>
+                <div className='col-6 right-side-page'>
+                    
+
                     <div className='cards'>
                         <h3>Basic Details</h3>
                         <div>
@@ -83,10 +84,6 @@ export default function profile() {
                             <div className='basicdetails'>
                                 <div className='col-6'>Employee ID : </div>
                                 <div className='col-6'>{user.employeeId}</div>
-                            </div>
-                            <div className='basicdetails'>
-                                <div className='col-6'>Reporting To</div>
-                                <div className='col-6'>{user.reportingManager}</div>
                             </div>
                             <div className='basicdetails'>
                                 <div className='col-6'>Email :</div>
